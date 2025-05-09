@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./res/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;700&family=Pragati+Narrow:wght@700&family=Quicksand:wght@300;400;500;700&family=Righteous&display=swap" rel="stylesheet"> 
+    <title>Servicios residenciales. || Todo lo necesario para regresarle el encanto a tu hogar.</title>
+    <link rel="stylesheet" href="res/stylesheet.css">
+    <style>
+        header h1{
+            font-family: Righteous;
+            text-transform: uppercase;
+            color: white;
+            font-size: 4em;
+            text-align: center;
+        }
+
+        .cover {
+            background-image: linear-gradient(rgba(62, 62, 62, 0.1), rgba(62, 62, 62, 0.1)), url('./res/all services/extpaint/27085.jpeg');
+            background-size: cover;
+            background-position: right;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-shadow: #121212 0 0 0.5vmin;
+            padding: 10vw;
+            
+        }
+
+        #abfore {
+            display: flex;
+            margin: 0;
+            width: 100vw;
+            height: 120vmin;
+            flex-direction: column;
+            background-image: linear-gradient(rgb(231, 191, 0), var(--ocre1));
+            justify-content: center;
+            align-items: center;
+        }
+
+        h2 {
+          font-family: 'Montserrat';
+          font-weight: 500;
+        }
+
+        #abfore>h2{
+            font-size: 3.5vmax;
+            width: 70vw;
+            margin: 1em;
+            color: white;
+            text-transform: uppercase;
+            text-align: center;
+            margin: 0 0 3vh 0;
+            text-shadow: var(--ocre1) 0 0.4vh 0.5vh;
+        }
+
+        #demos {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #previework {
+            height: auto;
+            display: flex;
+            justify-content: center;
+        }
+        .astate {
+            width: 40vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: var(--blue1);
+        }
+
+        .astate h2 {
+            font-size: 4vh;
+            margin: 1vw 0;
+        }
+
+        .astate div{
+            height: 25vmax;
+            width: 30vmax;
+            border-style: none;
+            box-shadow: rgba(48, 48, 48, 0.735) 0 0.2vw 0.2vw;
+            background-color: antiquewhite;
+        }
+
+
+        .bef div {
+          background-size: cover;
+          background-position: center;
+          animation: befch 70s linear infinite;
+          background-image: url('res/all services/epoxyflr/parqueo pintado/IMG_6805.jpg');
+        }
+
+
+        .aft div {
+          background-position: center;
+          background-size: cover;
+          animation: aftch 70s linear infinite;
+          background-image: url('res/all services/epoxyflr/parqueo pintado/IMG_6812.jpg');
+        }
+
+        @keyframes befch {
+          /* 4.75% {opacity: 1;}
+          5% {opacity: 0;}
+          5.5% {opacity: 1;}
+          14.75% {opacity: 1;}
+          15% {opacity: 0;}
+          15.5% {opacity: 1;}
+          24.75% {opacity: 1;}
+          25% {opacity: 0;}
+          25.5% {opacity: 1;}
+          34.75% {opacity: 1;}
+          35% {opacity: 0;}
+          35.5% {opacity: 1;}
+          44.75% {opacity: 1;}
+          45% {opacity: 0;}
+          45.5% {opacity: 1;}
+          54.75% {opacity: 1;}
+          55% {opacity: 0;}
+          55.5% {opacity: 1;}
+          64.75% {opacity: 1;}
+          65% {opacity: 0;}
+          65.5% {opacity: 1;}
+          74.75% {opacity: 1;}
+          75% {opacity: 0;}
+          75.5% {opacity: 1;}
+          84.75% {opacity: 1;}
+          85% {opacity: 0;}
+          85.5% {opacity: 1;}
+          94.75% {opacity: 1;}
+          95% {opacity: 0;}
+          95.5% {opacity: 1;} */
+          0% {background-image: url('res/all services/epoxyflr/parqueo pintado/IMG_6805.jpg');}
+          9% {background-image: url('res/all services/epoxyflr/parqueo pintado/IMG_6805.jpg');}
+          10% {background-image:url('res/all services/epoxyflr/pintura de pasillo y exterior/25945.jpeg');}
+          19.5% {background-image:url('res/all services/epoxyflr/pintura de pasillo y exterior/25945.jpeg');}
+          20% {background-image: url('res/all services/epoxyflr/pintura garaje/23593.jpeg');}
+          29.5% {background-image: url('res/all services/epoxyflr/pintura garaje/23593.jpeg');}
+          30% {background-image: url('res/all services/epoxyflr/pintura texturizada para pasillo/19207.jpeg');}
+          39.5% {background-image: url('res/all services/epoxyflr/pintura texturizada para pasillo/19207.jpeg');}
+          40% {background-image: url('res/all services/extpaint/16714.jpeg');}
+          49.5% {background-image: url('res/all services/extpaint/16714.jpeg');}
+          50% {background-image: url('res/all services/extpaint/27043.jpeg')}
+          59.5% {background-image: url('res/all services/extpaint/27043.jpeg')}
+          60% {background-image: url('res/all services/intpaint/1/IMG_7775.jpg')}
+          69.5% {background-image: url('res/all services/intpaint/1/IMG_7775.jpg')}
+          70% {background-image: url('res/all services/pressure/1/8308.jpeg')}
+          79.5% {background-image: url('res/all services/pressure/1/8308.jpeg')}
+          80% {background-image: url('res/all services/intpaint/IMG_20170330_125106.jpg');}
+          89.5% {background-image: url('res/all services/intpaint/IMG_20170330_125106.jpg');}
+          90% {background-image: url('res/all services/paversealer/1/15610.jpeg');}
+          99.5% {background-image: url('res/all services/paversealer/1/15610.jpeg');}
+        }
+
+
+        @keyframes aftch {
+          /* 4.75% {opacity: 1;}
+          5% {opacity: 0;}
+          5.5% {opacity: 1;}
+          14.75% {opacity: 1;}
+          15% {opacity: 0;}
+          15.5% {opacity: 1;}
+          24.75% {opacity: 1;}
+          25% {opacity: 0;}
+          25.5% {opacity: 1;}
+          34.75% {opacity: 1;}
+          35% {opacity: 0;}
+          35.5% {opacity: 1;}
+          44.75% {opacity: 1;}
+          45% {opacity: 0;}
+          45.5% {opacity: 1;}
+          54.75% {opacity: 1;}
+          55% {opacity: 0;}
+          55.5% {opacity: 1;}
+          64.75% {opacity: 1;}
+          65% {opacity: 0;}
+          65.5% {opacity: 1;}
+          74.75% {opacity: 1;}
+          75% {opacity: 0;}
+          75.5% {opacity: 1;}
+          84.75% {opacity: 1;}
+          85% {opacity: 0;}
+          85.5% {opacity: 1;}
+          94.75% {opacity: 1;}
+          95% {opacity: 0;}
+          95.5% {opacity: 1;} */
+          
+          0% {background-image: url('res/all services/epoxyflr/parqueo pintado/IMG_6812.jpg');}
+          9.5% {background-image: url('res/all services/epoxyflr/parqueo pintado/IMG_6812.jpg');}
+          10% {background-image:url('res/all services/epoxyflr/pintura de pasillo y exterior/27144.jpeg');}
+          19.5% {background-image:url('res/all services/epoxyflr/pintura de pasillo y exterior/27144.jpeg');}
+          20% {background-image: url('res/all services/epoxyflr/pintura garaje/23631.jpeg');}
+          29.5% {background-image: url('res/all services/epoxyflr/pintura garaje/23631.jpeg');}
+          30% {background-image: url('res/all services/epoxyflr/pintura texturizada para pasillo/19816.jpeg');}
+          39.5% {background-image: url('res/all services/epoxyflr/pintura texturizada para pasillo/19816.jpeg');}
+          40% {background-image: url('res/all services/extpaint/16876.jpeg');}
+          49.5% {background-image: url('res/all services/extpaint/16876.jpeg');}
+          50% {background-image: url('res/all services/extpaint/27079.jpeg')}
+          59.5% {background-image: url('res/all services/extpaint/27079.jpeg')}
+          60% {background-image: url('res/all services/intpaint/1/IMG_7785.jpg')}
+          69.5% {background-image: url('res/all services/intpaint/1/IMG_7785.jpg')}
+          70% {background-image: url('res/all services/pressure/1/8330.jpeg')}
+          79.5% {background-image: url('res/all services/pressure/1/8330.jpeg')}
+          80% {background-image: url('res/all services/intpaint/29637.jpeg');}
+          89.5% {background-image: url('res/all services/intpaint/29637.jpeg');}
+          90% {background-image: url('res/all services/paversealer/1/Untitled.jpeg');}
+          99.5% {background-image: url('res/all services/paversealer/1/Untitled.jpeg');}
+        }
+
+        #previework h1 {
+            width: 10vw;
+            align-self: center;
+            text-align: center;
+            margin: 0 3vw;
+            color: var(--blue1);
+        }
+
+        #titl {
+          margin: 10vh 0 0 10vw;
+          font-family: Righteous;
+          text-transform: uppercase;
+          font-size: 3vmax;
+        }
+
+
+        .serdet {
+            width: 100vh;
+            background-color: antiquewhite;
+            flex-direction: column;
+            align-items: center;
+            height: auto;
+            margin: 4vmin auto;
+            overflow: hidden;
+
+        }
+
+        .downarrow {
+            width: 3vmin;
+            margin-right: 1vh;
+            height: 2vmin;
+        }
+
+
+        .slideshow {
+            width: 100%;
+            height: 95vh;
+            position: relative;
+            background-color: #202020;
+        }
+
+        .slidepics {
+            width: inherit;
+            height: 100%;
+            overflow: hidden;
+            position: absolute;
+        }
+
+        .slidepics img{
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+            object-position: center top;
+            animation: fade 0.5s;
+        }
+
+        .slidepics span {
+          position: absolute;
+          font-size: 1.2em;
+          text-align: center;
+          bottom: 10%;
+          padding: 1.5vmin;
+          text-decoration: underline;
+          color: white;
+          font-family: Montserrat;
+          text-shadow: rgb(20, 20, 20) 0 0 1.5vmin;
+          right: 50%;
+          transform: translatex(50%);
+        }
+        
+        @keyframes fade {
+            from {opacity: .4} 
+            to {opacity: 1}
+        }
+            
+        .prev {
+            position: absolute;
+            left: 0;
+            height: 100%;
+            width: 7%;
+            background-color: #1212124f;
+            display: flex;
+            align-items: center;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            font-size: 2em;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .next {
+            position: absolute;
+            right: 0;
+            height: 100%;
+            width: 7%;
+            display: flex;
+            background-color: #1212124f;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            font-size: 2em;
+            cursor: pointer;
+            transition: 0.3s ease;
+            color: white;
+
+        }
+        
+        .next:hover, .prev:hover {
+            background-color: #121212b0;
+        }
+
+        .dotcontainer {
+            position: absolute;
+            left: 50%;
+            bottom: 3%;
+            display: flex;
+            z-index: 3;
+            transform: translateX(-50%);
+        }
+
+        .dot {
+            height: 0.8vmax;
+            margin: 0.3vmax;
+            width: 1.5vmax;
+            border-radius: 3vmax;
+            background-color: rgba(0, 3, 30, 0.546);
+        }
+
+
+
+        .active, .dot:hover  {
+            background-color: aliceblue;
+        }
+
+        @media screen and (orientation: portrait) {
+          .topbrand h3 {
+          width: 36vw;
+          font-size: 1.72vh;
+          line-height: 1.6;
+        }
+
+        .phoneno {
+          font-family: 'Pragati Narrow', Arial, Helvetica, sans-serif;
+          font-size: 6vw;
+          margin-left: 9vw;
+        }
+
+        .wholepaint {
+          width: 100%;
+        }
+
+        .paintcont, .paintani {
+          width: 64vw;
+        }
+
+
+        .cover {
+          height: 50vh;
+        }
+
+        header h1 {
+          font-size: 8vw;          
+        }
+
+        #abfore {
+          height: auto;
+          padding: 2vmax 0 ;
+        }
+        #previework {
+          flex-direction: column;
+        }
+
+        #previework h1 {
+          display: none;
+        }
+
+        .astate {
+          margin-bottom: 3vh;
+        }
+
+        .astate img {
+          width: 60vw;
+          height: 50vw;
+        }
+
+
+        #demos>img {
+          display: none;
+        }
+
+        .servicearea {
+          flex-direction: column;
+          font-size: 4vw;
+        }
+
+
+        .cont span, .cont a, div.branding h3{
+         font-size: 5vw;
+        }
+
+        #contct {
+          flex-direction: column;
+        }
+
+        #contct #othereq.wholeform, #contct #sendmsg.wholeform {
+          height: 140vw;
+          width: 90vw;
+          padding: 5%;
+          font-size: 4vw;
+        }
+        #contct #othereq.wholeform input, #contct #sendmsg.wholeform input
+        , #contct #sendmsg.wholeform h2, #contct #othereq.wholeform h2{
+          height: 10vmin;
+          font-size: 1.5em;
+        }
+
+        #contct #othereq, #contct #sendmsg {
+          flex-direction: row;
+          align-items: center;
+          height: 30vw;
+          width: 65vw;   
+          margin: 5vw;       
+        }
+
+        .serdet {
+          width: 92vw;
+          height: 100%;
+        }
+
+
+        .slideshow {
+            height: 90vw;
+        }
+
+        .details {
+          font-size: 2.5em;
+        }
+
+        .prev, .next{
+          width: 16%;
+          background: none;
+          font-size: 5vw;
+          transition: linear 0.1s;
+        }
+
+        @keyframes tapped {
+          from {background-color: rgba(17, 34, 17, 0.763);};
+          to {background-color:rgba(29, 29, 29, 0)};
+        }
+
+
+        #contct form img{
+          margin: 7%;
+          width: 10vmin;
+        }
+
+        #phonetag {
+          position: absolute;
+          border-radius: 3vmax;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-between;
+          transform: translateY(-12vh);
+          font-family: montserrat;
+          font-size: 2.5vh;
+          padding: 0.7vh;
+          font-weight: 500;
+          transition: 0.5s;
+          z-index: -1;
+          top: 0;
+          right: 2vmin;
+          background-color: #353535d8;
+        }
+
+        #optmenu {
+          display: block;
+          width: 100vw;
+        }
+
+        #optmenu img {
+          width: 2.5vh;
+          margin: 0.2vh;
+        }
+      }
+    </style>
+</head>
+<body>
+  <ul id="optmenu">
+    <div id="phonetag" ><a href="#topach"><img src="res/gotop.png" alt="Go to the top" style="width: 1.8vh;" ></a><a href="#topach"><img src="res/rdx.png" alt="reduced logo"><a href="#allbody"></a></div>
+  </ul>
+  <header>
+    <nav class="topbrand stepshad"  id="topach">
+      <h3>JB Quality Pro Services.</h3>
+      <div class="wholepaint">
+        <img src="res/roller.png" alt="" style="z-index: 3; max-height: 8vh;">
+        <div class="paintcont ">
+          <div class="paintani ">
+            <a class="phoneno" href="tel:+19545608927"><img src="res/phone.png" alt="phone" style="transform: rotate(45deg); max-width: 4vmin;">
+              954 - 560 - 8927</a>
+              <a href="index.html"><img src="res/backbut.png" alt="regresar" style="height: 3vh; margin: 1vh 2vmin 1vh 1vh; transform: none;"></a>
+            </div>
+        </div>
+      </div>
+      <div id="aboutdet">
+        <h2>Acerca de nosotros.</h2>
+        <p>lorem ipsum</p>
+      </div>
+    </nav>
+        <div class="cover">
+          <h1>
+            Preparados para dar el mejor servicio a tu hogar.
+        </h1>
+        </div>
+
+    </header>
+    <section id="abfore">
+        <h2>Una pequeña muestra de lo que hacemos.</h2>
+        <div id="demos">
+            <img src="res/arrow.png" alt="arrow" width="40%">
+            <div id="previework">
+                <div class="astate bef">
+                    <h2>Antes</h2>
+                    <div></div>
+                </div>
+                <div class="astate aft">
+                    <h2>Después</h2>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <h2 id="titl">-Otros ejemplos de nuestros trabajos-</h2>
+    <div class="serdet" id="">
+      <div class="slideshow">
+          <div class="slidepics slideshow1"><img src="res/all services/aftbef/FB_IMG_1461168834880.jpg" alt=""><span>Lavado a presión.</span></div>
+          <div class="slidepics slideshow1"><img src="res/all services/aftbef/FB_IMG_1461168847601.jpg" alt=""><span>Pintura de exterior.</span></div>
+          <div class="slidepics slideshow1"><img src="res/all services/aftbef/FB_IMG_1461168862445.jpg" alt=""><span>Limpieza total de techo.</span></div>
+          <div class="slidepics slideshow1"><img src="res/all services/aftbef/FB_IMG_1461168869110.jpg" alt=""><span>Limpieza total de techo.</span></div>
+          <div class="slidepics slideshow1"><img src="res/all services/aftbef/FB_IMG_1461168882165.jpg" alt=""><span>Limpieza total de techo.</span></div>
+          <div class="slidepics slideshow1"><img src="res/all services/aftbef/FB_IMG_1461168903688.jpg" alt=""><span>Pintura de exterior / Limpieza de tejado.</span></div>
+          <div class="slidepics slideshow1"><img src="res/all services/aftbef/FB_IMG_1461168917680.jpg" alt=""><span>Limpieza total de tejado y pintura.</span></div>
+          <div class="slidepics slideshow1"><img src="res/all services/aftbef/FB_IMG_1461168922993.jpg" alt=""><span>Lavado a presión / Limpieza de tejado</span></div>
+          <div class="slidepics slideshow1"><img src="res/all services/aftbef/FB_IMG_1461168935327.jpg" alt=""><span>Limpieza total de techo.</span></div>
+          <div class="slidepics slideshow1"><img src="res/all services/aftbef/FB_IMG_1461168971389.jpg" alt=""><span>Pintura de exterior.</span></div>
+          <div class="slidepics slideshow1"><img src="res/all services/aftbef/FB_IMG_1461168981039.jpg" alt=""><span>Lavado a presión en área de piscina.</span></div>
+          <div class="slidepics slideshow1"><img src="res/all services/aftbef/FB_IMG_1482939543128.jpg" alt=""><span>Limpieza y pintura de tejado.</span></div>
+          <div class="slidepics slideshow1"><img src="res/all services/aftbef/FB_IMG_1484101483472.jpg" alt=""><span>Limpieza total de techo.</span></div>
+          <a class="prev" onclick="plusSlides(-1); tapped(this); setTimeout(untapped, 200)"><span>❮</span></a>
+          <a class="next" onclick="plusSlides(1); tapped(this); setTimeout(untapped, 200)"><span>❯</span></a>
+          <div class="dotcontainer">
+            <span class="dot dot1" onclick="currentSlide(1)"></span> 
+            <span class="dot dot1" onclick="currentSlide(2)"></span> 
+            <span class="dot dot1" onclick="currentSlide(3)"></span> 
+            <span class="dot dot1" onclick="currentSlide(4)"></span> 
+            <span class="dot dot1" onclick="currentSlide(5)"></span> 
+            <span class="dot dot1" onclick="currentSlide(6)"></span> 
+            <span class="dot dot1" onclick="currentSlide(7)"></span> 
+            <span class="dot dot1" onclick="currentSlide(8)"></span> 
+            <span class="dot dot1" onclick="currentSlide(9)"></span> 
+            <span class="dot dot1" onclick="currentSlide(10)"></span> 
+            <span class="dot dot1" onclick="currentSlide(11)"></span> 
+            <span class="dot dot1" onclick="currentSlide(12)"></span> 
+            <span class="dot dot1" onclick="currentSlide(13)"></span> 
+          </div>
+      </div>
+  </div>
+    <div class="servicearea">
+        <div>
+          <h2>Sirviendo en:</h2>
+            <ul>
+              <li><img src="res/location2.png">-Pompano beach.</li>
+              <li><img src="res/location2.png">-West palm beach.</li>
+              <li><img src="res/location2.png">-Broward county.</li>
+            </ul>
+          </div>
+        <img src="./res/map.png" alt="a">
+    </div>
+    <main>
+      <div class="cont">
+        <div class="branding">
+          <img src="res/logo.png" width="80%" alt="our logo">
+          <h3>JB Quality Services Pro.</h3>
+        </div>
+        <div>
+          <span>Número de teléfono:</span>
+          <a href="tel:+19545608927">954 - 560 - 8927</a>
+          <span>Correo electrónico:</span>
+          <a href="mailto:jbqualityproservices@gmail.com">jbmail@gmail.com</a>
+        </div>
+      </div>
+    </main>
+
+    <div id="contct">
+        <form id="sendmsg" action="#" class="wholeform" onclick="expandform2()">
+          <h2>Dejanos un mensaje</h2>
+          <label for="ctname">Nombre:</label>
+          <input type="text" name="name" id="ctname">
+          <label for="contact">Correo</label>
+          <input type="text" name="contact" id="contact">
+          <label for="mesg" id="mesg">Mensaje:</label>
+          <textarea name="mesg" id="mesg" cols="30" rows="7"></textarea>
+          <input type="submit" id="submsg" value="Enviar">
+          <img src="./res/mailico.png" alt="mail icon">
+        </form>
+        <form id="othereq" class="" onclick="expandform()">
+          <h2>Solicita una llamada.</h2>
+          <label for="ctname">Nombre:</label>
+          <input type="text" name="name" id="ctname">
+          <label for="contact">Telefono:</label>
+          <input type="text" name="contact" id="contact">
+          <label for="time">Fecha y hora:</label>
+          <span><input type="date" name="time" id="time"><input type="time" name="time" id="time"></span>
+          <label for="mesg" id="mesg">Mensaje:</label>
+          <textarea name="mesg" id="mesg" cols="30" rows="5"></textarea>
+          <input type="submit" id="submsg" value="Enviar">
+          <img src="./res/phoney.png" alt="phoneicon" style="transform: rotate(45deg);">
+        </form>
+      </div>
+    </main>
+    <div id="payopt">
+      <img src="res/visa.png" alt="visa">
+      <img src="res/mcrd.png" alt="mastercard">
+    </div>
+    <footer>
+  
+    </footer>
+    <script>
+      function expandform() {
+        if (false == document.getElementById('othereq').classList.contains('wholeform')) {
+        document.getElementById('othereq').className += " wholeform";
+        document.getElementById('sendmsg').className -= " wholeform";
+        }
+      }
+
+      function expandform2() {
+        if (false == document.getElementById('sendmsg').classList.contains('wholeform')) {
+        document.getElementById('sendmsg').className += " wholeform";
+        document.getElementById('othereq').className -= " wholeform";
+        }
+      }
+
+
+        let slideIndex = 1;
+        showSlides(slideIndex);
+        
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+        
+        function showSlides(n) {
+            let i;
+            let x = document.getElementsByClassName('slideshow1');
+            let dots = document.getElementsByClassName('dot1')
+            if (n > x.length) {slideIndex = 1}    
+            if (n < 1) {slideIndex = x.length}
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";  
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+             x[slideIndex-1].style.display = "block";  
+             dots[slideIndex-1].className += " active";
+            }
+
+          
+        function tapped(x) {
+            if (x.style.backgroundColor == '') {
+                x.style.backgroundColor = 'rgba(18, 18, 18, 0.3)';
+            }
+        }
+
+        function untapped() {
+               let x = document.getElementsByClassName('prev');
+               let z = document.getElementsByClassName('next');
+               for (i = 0; i < x.length; i++) {
+                   if (x[i].style.backgroundColor == 'rgba(18, 18, 18, 0.3)'){
+                       x[i].style.backgroundColor = '';                       
+                   }
+               }
+               for (i = 0; i < z.length; i++) {
+                   if (z[i].style.backgroundColor == 'rgba(18, 18, 18, 0.3)'){
+                    z[i].style.backgroundColor = '';
+                   }
+               }
+        }
+
+        window.onscroll = function() {truestick()};
+      var navbar = document.getElementById('optmenu');
+      var stick = navbar.offsetTop;
+      
+      function truestick() {
+        if(window.pageYOffset > stick) {
+          navbar.classList.add('stickontop');
+          document.getElementById('phonetag').style.transform = 'translate(0)';
+        }
+        else {
+          navbar.classList.remove('stickontop');
+          document.getElementById('phonetag').style.transform = 'translateY(-12vh)';
+        }
+      }
+
+    </script>
+</body>
+</html>

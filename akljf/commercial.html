@@ -1,0 +1,360 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./res/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;700&family=Pragati+Narrow:wght@700&family=Quicksand:wght@300;400;500;700&family=Righteous&display=swap" rel="stylesheet"> 
+    <title>Servicios a comercios. || Aspiramos a brindar la pasión que nos caracteriza a los comercios.</title>
+    <link rel="stylesheet" href="res/stylesheet.css">
+    <link rel="stylesheet" href="res/comstyle.css">
+    <style>
+        main {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 100vw;
+        }
+
+        body {
+          width: 100vw;
+          overflow-x: hidden;
+        }
+
+        p {
+          font-size: 2em;
+          text-align: justify;
+          font-weight: 700;
+          width: 100%;
+        }
+
+        .cover1 {
+          background-image: url('./res/all services/paversealer/IMG_5724.jpg');
+          background-size: cover;
+          margin: 0;
+          margin-top: 6vh;
+          background-position: center;
+          animation: covercom 12s linear 1s infinite;
+        }
+         
+
+        @keyframes covercom {
+          33.2% {background-image: url('./res/all services/paversealer/IMG_5724.jpg');}
+          33.33% {background-image: url('./res/all services/epoxyflr/pintura garaje/23635.jpeg');}
+          66.63% {background-image: url('./res/all services/epoxyflr/pintura garaje/23635.jpeg');}
+          66.66% {background-image: url('./res/all services/epoxyflr/pintura texturizada para pasillo/12200.jpeg');}
+          99.96% {background-image: url('./res/all services/epoxyflr/pintura texturizada para pasillo/12200.jpeg');}
+        }
+
+        aside {
+            width: 40vmax;
+            height: inherit;
+            background-image: radial-gradient(var(--blue2), var(--blue1));
+            position: absolute;
+            right: 0;
+            text-transform: none;
+            color: white;
+            padding: 4%;
+            font-size: 1.3em;
+        }
+
+        aside h3{
+          font-family: Montserrat;
+          margin-top: 0;
+        }
+
+        aside p {
+          font-family: quicksand;
+          font-size: 1.05em;
+          font-weight: lighter;
+        }
+
+        section {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 70vw;
+          height: 100%;
+        }
+
+
+        section div{
+          margin: 4vh 0;
+          width: inherit;
+          height: 100%;
+        }
+
+        .leftpic{
+          height: 35vh;
+          width: 40vh;
+          border: solid #1212;
+          margin: 4vmin;
+          float: left;
+          background-image: url('./res/comercial1.jpg');
+          background-size: cover;
+          background-position: center;
+        }
+
+        .rightpic{
+          height: 35vh;
+          width: 40vh;
+          border: solid #1212;
+          float: right;
+          margin: 4vmin;
+          background-image: url('./res/commercial2.jpg');
+          background-size: cover;
+          background-position: center;
+        }
+
+        @media screen and (orientation: portrait) {
+          .topbrand h3 {
+          width: 36vw;
+          font-size: 1.72vh;
+          line-height: 1.6;
+        }
+
+        .phoneno {
+          font-family: 'Pragati Narrow', Arial, Helvetica, sans-serif;
+          font-size: 6.1vw;
+          margin-left: 8vw;
+          font-stretch: ultra-condensed;
+        }
+        .wholepaint {
+          width: 100%;
+        }
+
+        .paintcont, .paintani {
+          width: 64vw;
+        }
+
+        .cover1 {
+          height: 140vh;
+          background-size: 300%;
+          background-position:top center;
+        }
+
+        aside {
+          bottom: 0;
+          width: 100vw;
+          height: auto;
+        }
+
+        .cont {
+          font-size: 2vw;
+        }
+
+
+        .servicearea {
+          flex-direction: column;
+          font-size: 4vw;
+        }
+
+        .cont span, .cont a, div.branding h3{
+         font-size: 5vw;
+        }
+
+        #contct {
+          flex-direction: column;
+        }
+
+        #contct #othereq.wholeform, #contct #sendmsg.wholeform {
+          height: 140vw;
+          width: 90vw;
+          padding: 5%;
+          font-size: 4vw;
+        }
+        #contct #othereq.wholeform input, #contct #sendmsg.wholeform input
+        , #contct #sendmsg.wholeform h2, #contct #othereq.wholeform h2{
+          height: 10vmin;
+          font-size: 1.5em;
+        }
+
+        #contct #othereq, #contct #sendmsg {
+          flex-direction: row;
+          align-items: center;
+          height: 30vw;
+          width: 65vw;   
+          margin: 5vw;       
+        }
+
+        #contct form img{
+          margin: 7%;
+          width: 10vmin;
+        }
+
+        p {
+          font-size: 5vw;
+        }
+
+
+      #phonetag {
+          position: absolute;
+          border-radius: 3vmax;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-between;
+          transform: translateY(-12vh);
+          font-family: montserrat;
+          font-size: 2.5vh;
+          padding: 0.7vh;
+          font-weight: 500;
+          transition: 0.5s;
+          z-index: -1;
+          top: 1vh;
+          right: 2vmin;
+          background-color: #353535d8;
+        }
+
+        #optmenu {
+          display: block;
+          width: 100vw;
+        }
+
+        #optmenu img {
+          width: 2.5vh;
+          margin: 1vh;
+        }
+        }
+    </style>
+</head>
+<body>
+  <ul id="optmenu">
+    <div id="phonetag" ><a href="#topach"><img src="res/gotop.png" alt="Go to the top" style="width: 1.8vh;" ></a><a href="#topach"><img src="res/rdx.png" alt="reduced logo"><a href="#allbody"></a></div>
+  </ul>
+    <header>
+      <nav class="topbrand stepshad"  id="topach">
+        <h3>JB Quality Pro Services.</h3>
+        <div class="wholepaint">
+          <img src="res/roller.png" alt="" style="z-index: 3; max-height: 8vh;">
+          <div class="paintcont ">
+            <div class="paintani ">
+              <a class="phoneno" href="tel:+19545608927"><img src="res/phone.png" alt="phone" style="transform: rotate(45deg); max-width: 4vmin;">
+                954 - 560 - 8927</a>
+                <a href="index.html"><img src="res/backbut.png" alt="regresar" style="height: 3vh; margin: 1vh 2vmin 1vh 1vh; transform: none;"></a>
+              </div>
+          </div>
+        </div>
+      </nav>
+        <div class="cover1">
+          <aside>
+            <h3>Nos estamos expandiendo para servir a tu negocio.</h3>
+            <p>-Brindamos la confianza y profesionalismo que mereces, aplicamos la misma excelencia de nuestros servicios a 
+              cualquier necesidad para tu proyecto.
+            </p>
+            <p>-Contamos con un equipo que no teme ningun reto, nuestra verdadera pasión es darte lo mejor en pintura 
+              y acabados.
+            </p>
+            <p>Estamos preparados y motivados para servirte. Dejanos un mensaje.</p>
+          </aside>
+        </div>
+    </header>
+    <main>
+    <section>
+        <div>
+          <div class="leftpic"><img src="#" alt="" ></div>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus iste 
+              animi in quam recusandae illo aliquid, accusantium laboriosam voluptates neque 
+              abore provident nihil necessitatibus ab nemoanimi in quam recusandae illo aliquid, accusantium laboriosam voluptates neque 
+              magnam totam molestias veritatis labore provident nihil necessitatibus ab nemo.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus iste </p>
+        </div>
+        <div>
+                      <div class="rightpic"><img src="#" alt=""></div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque eveniet officiis
+              consequuntur distinctio inventore. Enim culpa, debitis exercitationem atque, prov
+          ventore. Enim culpa, debitis exercitationem atque, prov
+              </p>
+        </div>
+    </section>
+    <div class="servicearea">
+      <div>
+        <h2>Sirviendo en:</h2>
+          <ul>
+            <li><img src="res/location2.png">-Pompano beach.</li>
+            <li><img src="res/location2.png">-West palm beach.</li>
+            <li><img src="res/location2.png">-Broward county.</li>
+          </ul>
+        </div>
+      <img src="./res/map.png" alt="a">
+  </div>
+  <div class="cont">
+    <div class="branding">
+      <img src="res/logo.png" width="80%" alt="our logo">
+      <h3>JB Quality Services Pro.</h3>
+    </div>
+    <div>
+      <span>Número de teléfono:</span>
+      <a href="tel:+19545608927">954 - 560 - 8927</a>
+      <span>Correo electrónico:</span>
+      <a href="mailto:jbqualityproservices@gmail.com">jbmail@gmail.com</a>
+    </div>
+  </div>
+
+  <div id="contct">
+    <form id="sendmsg" action="#" class="wholeform" onclick="expandform2()">
+      <h2>Dejanos un mensaje</h2>
+      <label for="ctname">Nombre:</label>
+      <input type="text" name="name" id="ctname">
+      <label for="contact">Correo</label>
+      <input type="text" name="contact" id="contact">
+      <label for="mesg" id="mesg">Mensaje:</label>
+      <textarea name="mesg" id="mesg" cols="30" rows="7"></textarea>
+      <input type="submit" id="submsg" value="Enviar">
+      <img src="./res/mailico.png" alt="mail icon">
+    </form>
+    <form id="othereq" class="" onclick="expandform()">
+      <h2>Solicita una llamada.</h2>
+      <label for="ctname">Nombre:</label>
+      <input type="text" name="name" id="ctname">
+      <label for="contact">Telefono:</label>
+      <input type="text" name="contact" id="contact">
+      <label for="time">Fecha y hora:</label>
+      <span><input type="date" name="time" id="time"><input type="time" name="time" id="time"></span>
+      <label for="mesg" id="mesg">Mensaje:</label>
+      <textarea name="mesg" id="mesg" cols="30" rows="5"></textarea>
+      <input type="submit" id="submsg" value="Enviar">
+      <img src="./res/phoney.png" alt="phoneicon" style="transform: rotate(45deg);">
+    </form>
+  </div>
+    </main>
+    <div id="payopt">
+      <img src="res/visa.png" alt="visa">
+      <img src="res/mcrd.png" alt="mastercard">
+    </div>
+    <footer>
+  
+    </footer>
+    <script>
+            function expandform() {
+        if (false == document.getElementById('othereq').classList.contains('wholeform')) {
+        document.getElementById('othereq').className += " wholeform";
+        document.getElementById('sendmsg').className -= " wholeform";
+        }
+      }
+
+      function expandform2() {
+        if (false == document.getElementById('sendmsg').classList.contains('wholeform')) {
+        document.getElementById('sendmsg').className += " wholeform";
+        document.getElementById('othereq').className -= " wholeform";
+        }
+      }
+
+      window.onscroll = function() {truestick()};
+      var navbar = document.getElementById('optmenu');
+      var stick = navbar.offsetTop;
+      
+      function truestick() {
+        if(window.pageYOffset > stick) {
+          navbar.classList.add('stickontop');
+          document.getElementById('phonetag').style.transform = 'translate(0)';
+        }
+        else {
+          navbar.classList.remove('stickontop');
+          document.getElementById('phonetag').style.transform = 'translateY(-12vh)';
+        }
+      }
+    </script>
+</body>
+</html>

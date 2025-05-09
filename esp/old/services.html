@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="res/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;700&family=Pragati+Narrow:wght@700&family=Quicksand:wght@300;400;500;700&family=Righteous&display=swap" rel="stylesheet"> 
+    <title>Los servicios más buscados. || Practicamente todos nuestros servicios, consultanos directamente para saber mas.</title>
+    <link rel="stylesheet" href="../res/stylesheet.css">
+    <base href="../">
+    <style>
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        main h1 {
+            font-size: 7vmin;
+            font-family: Montserrat;
+            margin-top: 4vmax;
+            margin-bottom: 1vmax;
+            width: 70vw;
+            text-align: center;
+        }
+
+        #allserdisp {
+            color: aliceblue;
+            margin: 2vmax 0 ;
+            padding: 0;
+        }
+
+        #allserdisp li {
+            width: 65vw;
+            height: 5vw;
+            background-image: radial-gradient(farthest-corner at 40% 10%, var(--ocre1) 10%,  var(--ocre2) 90%);
+            display: flex;
+            border-radius: 1vmin 1vmin 0 0;
+            padding: 4vmin;
+            align-items: center;
+            margin-top: 1vw;
+            font-size: xx-large;
+            text-transform: uppercase;
+            font-weight: bold;
+            justify-content: space-between;
+            transition: all 0.5s;
+        }
+
+        #allserdisp a {
+          font-size: 4vh;
+        }
+
+        #allserdisp li:hover {
+            box-shadow: var(--ocre2) 0 0 1.5vmin;
+            transition: all 0.2s;
+        }
+
+        #expandbut {
+          color: var(--blue2);
+          text-decoration: underline;
+        }
+
+        li:target+div {
+           display: block;
+        }
+        
+        #allserdisp li p{
+            margin: 3vmin 0;
+            font-family: Righteous;
+        }
+
+        .serdet {
+            width: 65vw;
+            background-color: var(--blue2);
+            flex-direction: column;
+            align-items: center;
+            display: none;
+            height: auto;
+            border-radius: 0 0 1vmin 1vmin;
+            overflow: hidden;
+            animation: grower 0.3s ease;
+        }
+
+        @keyframes grower {
+            0% {transform: translateY(-25%)  rotateX(90deg) ;}
+            100% {transform: translateY(-0%) rotateX(0deg) }
+        }
+
+
+        .downarrow {
+            width: 3vmin;
+            margin-right: 1vh;
+            height: 2vmin;
+        }
+
+
+        .slideshow {
+            width: 100%;
+            height: 70vh;
+            position: relative;
+            background-color: #202020;
+        }
+
+        .slidepics {
+            width: inherit;
+            height: 100%;
+            overflow: hidden;
+            position: absolute;
+        }
+
+        .slidepics img{
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+            object-position: center;
+            animation: fade 0.5s;
+        }
+        
+        @keyframes fade {
+            from {opacity: .4} 
+            to {opacity: 1}
+        }
+            
+        .prev {
+            position: absolute;
+            left: 0;
+            height: 100%;
+            width: 7%;
+            background-color: #1212124f;
+            display: flex;
+            align-items: center;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            font-size: 2em;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .next {
+            position: absolute;
+            right: 0;
+            height: 100%;
+            width: 7%;
+            display: flex;
+            background-color: #1212124f;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            font-size: 2em;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+        
+        .next:hover, .prev:hover {
+            background-color: #121212b0;
+        }
+
+        .dotcontainer {
+            position: absolute;
+            left: 50%;
+            bottom: 3%;
+            display: flex;
+            max-width: 50vw;
+            z-index: 3;
+            transform: translateX(-50%);
+        }
+
+        .dot {
+            height: 1vmax;
+            margin: 0.3vmax;
+            width: 4vmax;
+            border-radius: 3vmax;
+            background-color: rgba(35, 35, 35, 0.546);
+            border: solid rgba(245, 245, 245, 0.587) 0.1vmin;
+        }
+
+        .active, .dot:hover  {
+            background-color: aliceblue;
+        }
+
+        .details {
+            color: white;
+            font-family: Montserrat;
+            font-size: 1.5em;
+            padding: 3%;
+        }
+
+        .details p {
+          margin: 0;
+        }
+        
+        .cover {
+            height: 100%;
+            display: flex;
+            padding: 3%;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(#45454588, #45454588), url('./res/all services/stock/front-5.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .cover img{
+          height: 18vmin;
+          margin-top: 3%;
+        }
+
+        .cover h2 {
+          color: white;
+          text-align: center;
+          width: 80%;
+          font-size: xx-large;
+          font-family: Quicksand;
+          font-weight: 300;
+          margin-top: 3%;
+          text-transform: none;
+        }
+
+        @media  screen and (orientation:portrait) {
+            .topbrand h3 {
+          width: 36vw;
+          font-size: 1.72vh;
+          line-height: 1.5;
+        }
+
+        .phoneno {
+          font-family: 'Pragati Narrow', Arial, Helvetica, sans-serif;
+          font-size: 5.5vw;
+          margin-left: 9vw;
+        }
+        .cover {
+          height: 120vw;
+        }
+
+        .cover h2 {
+            width: 98vw;
+            font-size: 6vmin;
+        }
+
+        .wholepaint {
+          width: 100%;
+        }
+
+        .paintcont, .paintani {
+          width: 64vw;
+        }
+
+        aside {
+          bottom: 0;
+          width: 100vw;
+          height: 30%;
+        }
+
+
+        #allserdisp li {
+            width: 92vw;
+            height: 7vh;
+            margin-top: 3vh;
+            font-size: 3vmax;
+            line-height: 1.0;
+        }
+
+        #allserdisp a {font-size: 3vmax;}
+
+        .serdet {
+          width: 92vw;
+          height: 100%;
+        }
+
+
+        .slideshow {
+            height: 80vw;
+        }
+
+        .details {
+          font-size: 4vw;
+        }
+
+        .prev, .next{
+          width: 20%;
+          background: none;
+          font-size: 5vw;
+          transition: linear 0.1s;
+        }
+
+        @keyframes tapped {
+          from {background-color: rgba(17, 34, 17, 0.763);};
+          to {background-color:rgba(29, 29, 29, 0)};
+        }
+
+  
+
+
+        #phonetag {
+          position: absolute;
+          border-radius: 3vmax;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-between;
+          transform: translateY(-12vh);
+          font-family: montserrat;
+          font-size: 2.5vh;
+          padding: 0.7vh;
+          font-weight: 500;
+          transition: 0.5s;
+          z-index: -1;
+          top: 0;
+          right: 2vmin;
+          background-color: #353535d8;
+        }
+
+        #optmenu {
+          display: block;
+          width: 100vw;
+        }
+
+        #optmenu img {
+          width: 2.5vh;
+          margin: 0.2vh;
+        }
+      }
+    </style>
+</head>
+<body>
+  <ul id="optmenu">
+    <div id="phonetag" ><a href="#topach"><img src="res/gotop.png" alt="Go to the top" style="width: 1.8vh;" ></a><a href="#topach"><img src="res/rdx.png" alt="reduced logo"><a href="#allbody"></a></div>
+  </ul>
+    <header>
+        <nav class="topbrand stepshad"  id="topach">
+            <h3>JB Quality Pro Services.</h3>
+            <div class="wholepaint">
+              <img src="res/roller.png" alt="" style="z-index: 3; max-height: 8vh;">
+              <div class="paintcont ">
+                <div class="paintani">
+                  <a class="phoneno" href="tel:+19545608927"><img src="res/phone.png" alt="phone" style="transform: rotate(45deg); max-width: 4vmin;">
+                    954 - 560 - 8927</a>
+                    <a href="esp/index.html"><img src="res/backbut.png" alt="regresar" style="height: 3vh; margin: 1vh 2vmin 1vh 1vh; transform: none;"></a>
+                  </div>
+              </div>
+            </div>
+        </nav>
+      </header>
+
+        <div class="cover">
+            <img src="res/logo.png" alt="the logo">
+
+            <h2>
+              En JB Quality Pro Sevices. contamos con una amplia gama de servicios los cuales en conjunto 
+              brindan una experiencia y satisfaccion muy por encima del promedio. Estamos abiertos a cualquier
+              reto o trabajar en los detalles mas delicados.
+            </h2>
+        </div>
+
+    <main>
+        <h1>
+            Nuestros servicios mas populares.
+        </h1>
+        <ul id="allserdisp">
+          <a onclick="expandall(this)" id="expandbut">Expandir todos.</a>
+
+            <li onclick="expands(this.nextElementSibling)" id="extpaint"><p>Pintura de exterior.</p>
+              <img src="res/downarrow.png" alt="open" class="downarrow">
+            </li>
+            <div class="serdet" >
+                <div class="slideshow">
+                  <div class="slidepics slideshow1"><img src="res/all services/extpaint/9692.jpeg" alt=""></div>
+                  <div class="slidepics slideshow1"><img src="res/all services/extpaint/16714.jpeg" alt=""></div>
+                  <div class="slidepics slideshow1"><img src="res/all services/extpaint/16710.jpeg" alt=""></div>
+                  <div class="slidepics slideshow1"><img src="res/all services/extpaint/16717.jpeg" alt=""></div>
+                  <div class="slidepics slideshow1"><img src="res/all services/extpaint/16718.jpeg" alt=""></div>
+                  <div class="slidepics slideshow1"><img src="res/all services/extpaint/16771.jpeg" alt=""></div>
+                  <div class="slidepics slideshow1"><img src="res/all services/extpaint/16878.jpeg" alt=""></div>
+                  <div class="slidepics slideshow1"><img src="res/all services/extpaint/25504.jpeg" alt=""></div>
+                  <div class="slidepics slideshow1"><img src="res/all services/extpaint/16866.jpeg" alt=""></div>
+                  <div class="slidepics slideshow1"><img src="res/all services/extpaint/16864.jpeg" alt=""></div>
+                  <div class="slidepics slideshow1"><img src="res/all services/extpaint/16876.jpeg" alt=""></div>
+                  <div class="slidepics slideshow1"><img src="res/all services/extpaint/27031.jpeg" alt=""></div>
+                  <div class="slidepics slideshow1"><img src="res/all services/extpaint/27034.jpeg" alt=""></div>
+                  <div class="slidepics slideshow1"><img src="res/all services/extpaint/27037.jpeg" alt=""></div>
+                  <div class="slidepics slideshow1"><img src="res/all services/extpaint/27050.jpeg" alt=""></div>
+                  <div class="slidepics slideshow1"><img src="res/all services/extpaint/27070.jpeg" alt=""></div>
+                  <div class="slidepics slideshow1"><img src="res/all services/extpaint/27102.jpeg" alt=""></div>
+                  <div class="slidepics slideshow1"><img src="res/all services/extpaint/27104.jpeg" alt=""></div>
+                  <div class="slidepics slideshow1"><img src="res/all services/extpaint/IMAG0002.jpg" alt=""></div>
+                  <div class="slidepics slideshow1"><img src="res/all services/extpaint/IMG_0056.JPG" alt=""></div>
+                  <div class="slidepics slideshow1"><img src="res/all services/extpaint/IMG_20161213_113215.jpg" alt=""></div>
+                  <div class="slidepics slideshow1"><img src="res/all services/extpaint/IMG_20170516_121058.jpg" alt=""></div>
+                    <a class="prev" onclick="plusSlides(-1, 0); tapped(this); setTimeout(untapped, 200)"><span>❮</span></a>
+                    <a class="next" onclick="plusSlides(1, 0); tapped(this);  setTimeout(untapped, 200)"><span>❯</span></a>
+                    <div class="dotcontainer">
+                      <span class="dot dot1" onclick="currentSlide(1, 0)"></span> 
+                      <span class="dot dot1" onclick="currentSlide(2, 0)"></span> 
+                      <span class="dot dot1" onclick="currentSlide(3, 0)"></span> 
+                      <span class="dot dot1" onclick="currentSlide(4, 0)"></span> 
+                      <span class="dot dot1" onclick="currentSlide(5, 0)"></span> 
+                      <span class="dot dot1" onclick="currentSlide(6, 0)"></span> 
+                      <span class="dot dot1" onclick="currentSlide(7, 0)"></span> 
+                      <span class="dot dot1" onclick="currentSlide(8, 0)"></span> 
+                      <span class="dot dot1" onclick="currentSlide(9, 0)"></span> 
+                      <span class="dot dot1" onclick="currentSlide(10, 0)"></span> 
+                      <span class="dot dot1" onclick="currentSlide(11, 0)"></span> 
+                      <span class="dot dot1" onclick="currentSlide(12, 0)"></span> 
+                      <span class="dot dot1" onclick="currentSlide(13, 0)"></span> 
+                      <span class="dot dot1" onclick="currentSlide(14, 0)"></span>                   
+                      <span class="dot dot1" onclick="currentSlide(15, 0)"></span> 
+                      <span class="dot dot1" onclick="currentSlide(16, 0)"></span> 
+                      <span class="dot dot1" onclick="currentSlide(17, 0)"></span> 
+                      <span class="dot dot1" onclick="currentSlide(18, 0)"></span> 
+                      <span class="dot dot1" onclick="currentSlide(19, 0)"></span> 
+                      <span class="dot dot1" onclick="currentSlide(20, 0)"></span> 
+                      <span class="dot dot1" onclick="currentSlide(21, 0)"></span> 
+                      <span class="dot dot1" onclick="currentSlide(22, 0)"></span> 
+                    </div>
+                </div>
+                <div class="details">
+                  <p>Nuestro servicio estrella. Quizas la forma mas eficaz para darle un nuevo aire a tu 
+                    propiedad, algo muy sencillo que realizamos con excelencia hasta el detalle mas pequeño.
+                  </p>
+                </div>
+            </div>
+            <li onclick="expands(this.nextElementSibling)" id="intpaint"><p>Pintura de interiores.</p>
+              <img src="res/downarrow.png" alt="open" class="downarrow">
+            </li>
+            <div class="serdet" id="">
+                <div class="slideshow">
+                  <div class="slidepics slideshow2"><img src="res/all services/intpaint/1/IMG_7773.jpg" alt=""></div>
+                  <div class="slidepics slideshow2"><img src="res/all services/intpaint/1/IMG_7775.jpg" alt=""></div>
+                  <div class="slidepics slideshow2"><img src="res/all services/intpaint/1/IMG_7780.jpg" alt=""></div>
+                  <div class="slidepics slideshow2"><img src="res/all services/intpaint/1/IMG_7782.jpg" alt=""></div>
+                  <div class="slidepics slideshow2"><img src="res/all services/intpaint/1/IMG_7785.jpg" alt=""></div>
+                  <div class="slidepics slideshow2"><img src="res/all services/intpaint/29627.jpeg" alt=""></div>
+                  <div class="slidepics slideshow2"><img src="res/all services/intpaint/29629.jpeg" alt=""></div>
+                  <div class="slidepics slideshow2"><img src="res/all services/intpaint/29634.jpeg" alt=""></div>
+                  <div class="slidepics slideshow2"><img src="res/all services/intpaint/29637.jpeg" alt=""></div>
+                  <div class="slidepics slideshow2"><img src="res/all services/intpaint/9679.jpeg" alt=""></div>
+                  <div class="slidepics slideshow2"><img src="res/all services/intpaint/9682.jpeg" alt=""></div>
+                  <div class="slidepics slideshow2"><img src="res/all services/intpaint/33_A10692053_39_1608089073.jpg" alt=""></div>
+                  <div class="slidepics slideshow2"><img src="res/all services/intpaint/122.jpeg" alt=""></div>
+                  <div class="slidepics slideshow2"><img src="res/all services/intpaint/9680.jpeg" alt=""></div>
+                  <div class="slidepics slideshow2"><img src="res/all services/intpaint/pintura-interior-tres-tonos.jpg" alt=""></div>
+                  <div class="slidepics slideshow2"><img src="res/all services/intpaint/9689.jpeg" alt=""></div>
+                    <a class="prev" onclick="plusSlides(-1, 1); tapped(this); setTimeout(untapped, 200)"><span>❮</span></a>
+                    <a class="next" onclick="plusSlides(1, 1); tapped(this); setTimeout(untapped, 200)"><span>❯</span></a>
+                    <div class="dotcontainer">
+                      <span class="dot dot2" onclick="currentSlide(1, 1)"></span> 
+                      <span class="dot dot2" onclick="currentSlide(2, 1)"></span> 
+                      <span class="dot dot2" onclick="currentSlide(3, 1)"></span> 
+                      <span class="dot dot2" onclick="currentSlide(4, 1)"></span> 
+                      <span class="dot dot2" onclick="currentSlide(5, 1)"></span> 
+                      <span class="dot dot2" onclick="currentSlide(6, 1)"></span> 
+                      <span class="dot dot2" onclick="currentSlide(7, 1)"></span> 
+                      <span class="dot dot2" onclick="currentSlide(8, 1)"></span> 
+                      <span class="dot dot2" onclick="currentSlide(9, 1)"></span> 
+                      <span class="dot dot2" onclick="currentSlide(10, 1)"></span> 
+                      <span class="dot dot2" onclick="currentSlide(11, 1)"></span> 
+                      <span class="dot dot2" onclick="currentSlide(12, 1)"></span> 
+                      <span class="dot dot2" onclick="currentSlide(13, 1)"></span>
+                      <span class="dot dot2" onclick="currentSlide(14, 1)"></span> 
+                      <span class="dot dot2" onclick="currentSlide(15, 1)"></span> 
+                      <span class="dot dot2" onclick="currentSlide(16, 1)"></span> 
+                    </div>
+                </div>
+                <div class="details">
+                  <p>Esta es una tarea que requiere de una particular delicadeza, por eso usamos 
+                    herramientas manuales pero más precisas. Te ayudaremos a darle el mejor color 
+                    a tu día a día.
+                  </p>
+                </div>
+            </div>
+            <li onclick="expands(this.nextElementSibling)" id="pressure"><p>Lavado a presión.</p>
+                <img src="res/downarrow.png" alt="open" class="downarrow">
+            </li>
+            <div class="serdet" >
+                <div class="slideshow">
+                  <div class="slidepics slideshow3"><img src="res/all services/pressure/2/19293.jpeg" alt=""></div>
+                  <div class="slidepics slideshow3"><img src="res/all services/pressure/2/19291.jpeg" alt=""></div>
+                  <div class="slidepics slideshow3"><img src="res/all services/pressure/2/19613.jpeg" alt=""></div>
+                  <div class="slidepics slideshow3"><img src="res/all services/pressure/2/27648.jpeg" alt=""></div>
+                  <div class="slidepics slideshow3"><img src="res/all services/pressure/2/27664.jpeg" alt=""></div>
+                  <div class="slidepics slideshow3"><img src="res/all services/pressure/2/19285.jpeg" alt=""></div>
+                  <div class="slidepics slideshow3"><img src="res/all services/pressure/1/8308.jpeg" alt=""></div>
+                  <div class="slidepics slideshow3"><img src="res/all services/pressure/1/8310.jpeg" alt=""></div>
+                  <div class="slidepics slideshow3"><img src="res/all services/pressure/1/8331.jpeg" alt=""></div>
+                  <div class="slidepics slideshow3"><img src="res/all services/pressure/1/8333.jpeg" alt=""></div>
+                  <div class="slidepics slideshow3"><img src="res/all services/pressure/1/8337.jpeg" alt=""></div>
+                  <div class="slidepics slideshow3"><img src="res/all services/pressure/1/25491.jpeg" alt=""></div>
+                  <div class="slidepics slideshow3"><img src="res/all services/pressure/1/25493.jpeg" alt=""></div>
+                  <div class="slidepics slideshow3"><img src="res/all services/pressure/1/25547.jpeg" alt=""></div>
+                  <div class="slidepics slideshow3"><img src="res/all services/pressure/1/25495.jpeg" alt=""></div>
+                  <div class="slidepics slideshow3"><img src="res/all services/pressure/1/25523.jpeg" alt=""></div>
+                  <div class="slidepics slideshow3"><img src="res/all services/pressure/1/25543.jpeg" alt=""></div>
+                  <div class="slidepics slideshow3"><img src="res/all services/pressure/3/26980.jpeg" alt=""></div>
+                  <div class="slidepics slideshow3"><img src="res/all services/pressure/3/26981.jpeg" alt=""></div>
+                  <div class="slidepics slideshow3"><img src="res/all services/pressure/3/26999.jpeg" alt=""></div>
+                  <div class="slidepics slideshow3"><img src="res/all services/pressure/3/27024.jpeg" alt=""></div>
+                  <div class="slidepics slideshow3"><img src="res/all services/pressure/3/27016.jpeg" alt=""></div>
+                  <div class="slidepics slideshow3"><img src="res/all services/pressure/3/27622.jpeg" alt=""></div>
+                  <div class="slidepics slideshow3"><img src="res/all services/extpaint/25535.jpeg" alt=""></div>
+                  <a class="prev" onclick="plusSlides(-1, 2); tapped(this); setTimeout(untapped, 200)"><span>❮</span></a>
+                    <a class="next" onclick="plusSlides(1, 2); tapped(this);  setTimeout(untapped, 200)"><span>❯</span></a>
+                    <div class="dotcontainer">
+                      <span class="dot dot3" onclick="currentSlide(1, 2)"></span> 
+                      <span class="dot dot3" onclick="currentSlide(2, 2)"></span> 
+                      <span class="dot dot3" onclick="currentSlide(3, 2)"></span> 
+                      <span class="dot dot3" onclick="currentSlide(4, 2)"></span> 
+                      <span class="dot dot3" onclick="currentSlide(5, 2)"></span> 
+                      <span class="dot dot3" onclick="currentSlide(6, 2)"></span> 
+                      <span class="dot dot3" onclick="currentSlide(7, 2)"></span> 
+                      <span class="dot dot3" onclick="currentSlide(8, 2)"></span> 
+                      <span class="dot dot3" onclick="currentSlide(9, 2)"></span> 
+                      <span class="dot dot3" onclick="currentSlide(10, 2)"></span> 
+                      <span class="dot dot3" onclick="currentSlide(11, 2)"></span> 
+                      <span class="dot dot3" onclick="currentSlide(12, 2)"></span> 
+                      <span class="dot dot3" onclick="currentSlide(13, 2)"></span> 
+                      <span class="dot dot3" onclick="currentSlide(14, 2)"></span> 
+                      <span class="dot dot3" onclick="currentSlide(15, 2)"></span> 
+                      <span class="dot dot3" onclick="currentSlide(16, 2)"></span> 
+                      <span class="dot dot3" onclick="currentSlide(17, 2)"></span> 
+                      <span class="dot dot3" onclick="currentSlide(18, 2)"></span> 
+                      <span class="dot dot3" onclick="currentSlide(19, 2)"></span> 
+                      <span class="dot dot3" onclick="currentSlide(20, 2)"></span> 
+                      <span class="dot dot3" onclick="currentSlide(21, 2)"></span> 
+                      <span class="dot dot3" onclick="currentSlide(22, 2)"></span> 
+                      <span class="dot dot3" onclick="currentSlide(23, 2)"></span> 
+                      <span class="dot dot3" onclick="currentSlide(24, 2)"></span> 
+                    </div>
+                </div>
+                <div class="details">
+                  <p>Muy básico para tu propiedad, es de gran importancia hacer un proceso de lavado y Limpieza
+                    profunda en cada rincón de manera periódica. El equipo que usamos es especial para poder tene
+                    el resultado deseado.
+                  </p>
+                </div>
+            </div>
+            <li onclick="expands(this.nextElementSibling)" id="roofpaint"><p>Pintado de techo.</p>
+                <img src="res/downarrow.png" alt="open" class="downarrow">
+            </li>
+            <div class="serdet" >
+                <div class="slideshow">
+                  <div class="slidepics slideshow4"><img src="res/all services/roofpaint/IMAG0120.jpg" alt=""></div>
+                  <div class="slidepics slideshow4"><img src="res/all services/roofpaint/IMAG0122.jpg" alt=""></div>
+                  <div class="slidepics slideshow4"><img src="res/all services/roofpaint/IMAG0127.jpg" alt=""></div>
+                  <div class="slidepics slideshow4"><img src="res/all services/roofpaint/IMAG0128.jpg" alt=""></div>
+                    <a class="prev" onclick="plusSlides(-1, 3); tapped(this); setTimeout(untapped, 200)"><span>❮</span></a>
+                    <a class="next" onclick="plusSlides(1, 3); tapped(this); setTimeout(untapped, 200)"><span>❯</span></a>
+                    <div class="dotcontainer">
+                      <span class="dot dot4" onclick="currentSlide(1, 3)"></span> 
+                      <span class="dot dot4" onclick="currentSlide(2, 3)"></span> 
+                      <span class="dot dot4" onclick="currentSlide(3, 3)"></span> 
+                      <span class="dot dot4" onclick="currentSlide(4, 3)"></span> 
+                    </div>
+                </div>
+                <div class="details">
+                  <p>Si quieres cuidar tu hogar a largo plazo es importante mantener una capa de protección sobre tu 
+                    techo, además esta capa aislante puede llegar a mejorar la temperatura de tu hogar. Contáctanos para
+                    saber mas.
+                  </p>
+                </div>
+            </div>
+            <li onclick="expands(this.nextElementSibling)" id="pavers"><p>Pintura de pisos exteriores y piscinas.</p>
+                <img src="res/downarrow.png" alt="open" class="downarrow">
+            </li>
+            <div class="serdet" >
+                <div class="slideshow">
+                  <div class="slidepics slideshow5"><img src="res/all services/paversealer/1/15609.jpeg" alt=""></div>
+                  <div class="slidepics slideshow5"><img src="res/all services/paversealer/1/15610.jpeg" alt=""></div>
+                  <div class="slidepics slideshow5"><img src="res/all services/paversealer/1/15630.jpeg" alt=""></div>
+                  <div class="slidepics slideshow5"><img src="res/all services/paversealer/1/15631.jpeg" alt=""></div>
+                  <div class="slidepics slideshow5"><img src="res/all services/paversealer/1/15706.jpeg" alt=""></div>
+                  <div class="slidepics slideshow5"><img src="res/all services/paversealer/1/15708.jpeg" alt=""></div>
+                  <div class="slidepics slideshow5"><img src="res/all services/paversealer/1/15718.jpeg" alt=""></div>
+                  <div class="slidepics slideshow5"><img src="res/all services/paversealer/1/Untitled.jpeg" alt=""></div>
+                  <div class="slidepics slideshow5"><img src="res/all services/paversealer/1/15726.jpeg" alt=""></div>
+                  <div class="slidepics slideshow5"><img src="res/all services/paversealer/3/449.jpeg" alt=""></div>
+                  <div class="slidepics slideshow5"><img src="res/all services/paversealer/3/459.jpeg" alt=""></div>
+                  <div class="slidepics slideshow5"><img src="res/all services/paversealer/3/451.jpeg" alt=""></div>
+                  <div class="slidepics slideshow5"><img src="res/all services/paversealer/3/107.jpeg" alt=""></div>
+                  <div class="slidepics slideshow5"><img src="res/all services/paversealer/3/438.jpeg" alt=""></div>
+                  <div class="slidepics slideshow5"><img src="res/all services/paversealer/3/17409.jpeg" alt=""></div>
+                  <div class="slidepics slideshow5"><img src="res/all services/paversealer/3/17407.jpeg" alt=""></div>
+                  <div class="slidepics slideshow5"><img src="res/all services/paversealer/3/17404.jpeg" alt=""></div>
+                  <div class="slidepics slideshow5"><img src="res/all services/paversealer/3/17412.jpeg" alt=""></div>
+                  <div class="slidepics slideshow5"><img src="res/all services/paversealer/3/18037.jpeg" alt=""></div>
+                  <div class="slidepics slideshow5"><img src="res/all services/paversealer/3/17959.jpeg" alt=""></div>
+                  <div class="slidepics slideshow5"><img src="res/all services/paversealer/3/17961.jpeg" alt=""></div>
+                  <div class="slidepics slideshow5"><img src="res/all services/paversealer/3/18041.jpeg" alt=""></div>
+                  <a class="prev" onclick="plusSlides(-1, 4); tapped(this); setTimeout(untapped, 200)"><span>❮</span></a>
+                  <a class="next" onclick="plusSlides(1, 4); tapped(this); setTimeout(untapped, 200)"><span>❯</span></a>
+                  <div class="dotcontainer">
+                    <span class="dot dot5" onclick="currentSlide(1, 4)"></span> 
+                    <span class="dot dot5" onclick="currentSlide(2, 4)"></span> 
+                    <span class="dot dot5" onclick="currentSlide(3, 4)"></span> 
+                    <span class="dot dot5" onclick="currentSlide(4, 4)"></span> 
+                    <span class="dot dot5" onclick="currentSlide(5, 4)"></span> 
+                    <span class="dot dot5" onclick="currentSlide(6, 4)"></span> 
+                    <span class="dot dot5" onclick="currentSlide(7, 4)"></span> 
+                    <span class="dot dot5" onclick="currentSlide(8, 4)"></span> 
+                    <span class="dot dot5" onclick="currentSlide(9, 4)"></span> 
+                    <span class="dot dot5" onclick="currentSlide(10, 4)"></span> 
+                    <span class="dot dot5" onclick="currentSlide(11, 4)"></span> 
+                      <span class="dot dot5" onclick="currentSlide(12, 4)"></span> 
+                      <span class="dot dot5" onclick="currentSlide(13, 4)"></span> 
+                      <span class="dot dot5" onclick="currentSlide(14, 4)"></span> 
+                      <span class="dot dot5" onclick="currentSlide(15, 4)"></span> 
+                      <span class="dot dot5" onclick="currentSlide(16, 4)"></span> 
+                      <span class="dot dot5" onclick="currentSlide(17, 4)"></span> 
+                      <span class="dot dot5" onclick="currentSlide(18, 4)"></span> 
+                      <span class="dot dot5" onclick="currentSlide(19, 4)"></span> 
+                      <span class="dot dot5" onclick="currentSlide(20, 4)"></span> 
+                      <span class="dot dot5" onclick="currentSlide(21, 4)"></span> 
+                      <span class="dot dot5" onclick="currentSlide(22, 4)"></span> 
+
+                  
+                    </div>
+                </div>
+                <div class="details">
+                  <p>Además de verse muy bien ayuda a mantener en buen estado los ladrillos o adoquines que utilices
+                    en el exterior. Se aplica un sellador especial en aerosol. Este servicio tambien es muy importante para zonas recreativas como la piscina.
+                  </p>
+                </div>
+            </div>
+            <li onclick="expands(this.nextElementSibling)" id="knockdownser" style="display:none;"><p>Textura de estuco.</p>
+                <img src="res/downarrow.png" alt="open" class="downarrow">
+            </li>
+            <div class="" style="display:none;">
+                <div class="slideshow">
+                  <div class="slidepics slideshow6"><img src="res/all services/knockdown/27103.jpeg" alt=""></div>
+                  <div class="slidepics slideshow6"><img src="res/all services/knockdown/25570.jpeg" alt=""></div>
+                  <div class="slidepics slideshow6"><img src="res/all services/knockdown/25571.jpeg" alt=""></div>
+                  <div class="slidepics slideshow6"><img src="res/all services/knockdown/knock1.jpg" alt=""></div>
+                  <a class="prev" onclick="plusSlides(-1, 5); tapped(this); setTimeout(untapped, 200)"><span>❮</span></a>
+                    <a class="next" onclick="plusSlides(1, 5); tapped(this); setTimeout(untapped, 200)"><span>❯</span></a>
+                    <div class="dotcontainer">
+                      <span class="dot dot6" onclick="currentSlide(1, 5)"></span> 
+                      <span class="dot dot6" onclick="currentSlide(2, 5)"></span> 
+                      <span class="dot dot6" onclick="currentSlide(3, 5)"></span> 
+                      <span class="dot dot6" onclick="currentSlide(4, 5)"></span> 
+                    </div>
+                </div>
+                <div class="details">
+                  <p>Muy de moda y con mucha razón pues inevitablemente le dará el carácter a tus paredes. Este puede ser 
+                    aplicado en spray o manualmente con compuestos especiales.
+                  </p>
+                </div>
+            </div>
+            <li onclick="expands(this.nextElementSibling)" id="epoxyflr"><p>Sellado con epoxy y sintéticos.</p>
+                <img src="res/downarrow.png" alt="open" class="downarrow">
+            </li>
+            <div class="serdet" >
+              <div class="slideshow">
+                  <div class="slidepics slideshow7"><img src="res/all services/epoxyflr/parqueo pintado/IMG_6812.jpg" alt=""></div>
+                  <div class="slidepics slideshow7"><img src="res/all services/epoxyflr/parqueo pintado/IMG_6805.jpg" alt=""></div>
+                  <div class="slidepics slideshow7"><img src="res/all services/epoxyflr/parqueo pintado/IMG_6808.jpg" alt=""></div>
+                  <div class="slidepics slideshow7"><img src="res/all services/epoxyflr/parqueo pintado/IMG_6811.jpg" alt=""></div>
+                  <div class="slidepics slideshow7"><img src="res/all services/epoxyflr/pintura de pasillo y exterior/25945.jpeg" alt=""></div>
+                  <div class="slidepics slideshow7"><img src="res/all services/epoxyflr/pintura de pasillo y exterior/25949.jpeg" alt=""></div>
+                  <div class="slidepics slideshow7"><img src="res/all services/epoxyflr/pintura de pasillo y exterior/26821.jpeg" alt=""></div>
+                  <div class="slidepics slideshow7"><img src="res/all services/epoxyflr/pintura de pasillo y exterior/27115.jpeg" alt=""></div>
+                  <div class="slidepics slideshow7"><img src="res/all services/epoxyflr/pintura de pasillo y exterior/27117.jpeg" alt=""></div>
+                  <div class="slidepics slideshow7"><img src="res/all services/epoxyflr/pintura de pasillo y exterior/27152.jpeg" alt=""></div>
+                  <div class="slidepics slideshow7"><img src="res/all services/epoxyflr/pintura de pasillo y exterior/27124.jpeg" alt=""></div>
+                  <div class="slidepics slideshow7"><img src="res/all services/epoxyflr/pintura de pasillo y exterior/27152.jpeg" alt=""></div>
+                  <div class="slidepics slideshow7"><img src="res/all services/epoxyflr/pintura de pasillo y exterior/27421.jpeg" alt=""></div>
+                  <div class="slidepics slideshow7"><img src="res/all services/paversealer/IMG_5724.jpg" alt=""></div>
+                  <div class="slidepics slideshow7"><img src="res/all services/paversealer/IMG_5717.jpg" alt=""></div>
+                  <div class="slidepics slideshow7"><img src="res/all services/epoxyflr/pintura garaje/23596.jpeg" alt=""></div>
+                  <div class="slidepics slideshow7"><img src="res/all services/epoxyflr/pintura garaje/23631.jpeg" alt=""></div>
+                  <div class="slidepics slideshow7"><img src="res/all services/epoxyflr/pintura garaje/23635.jpeg" alt=""></div>
+                  <div class="slidepics slideshow7"><img src="res/all services/epoxyflr/pintura texturizada para pasillo/19207.jpeg" alt=""></div>
+                  <div class="slidepics slideshow7"><img src="res/all services/epoxyflr/pintura texturizada para pasillo/19211.jpeg" alt=""></div>
+                  <div class="slidepics slideshow7"><img src="res/all services/epoxyflr/pintura texturizada para pasillo/12200.jpeg" alt=""></div>
+                  <div class="slidepics slideshow7"><img src="res/all services/epoxyflr/pintura texturizada para pasillo/19222.jpeg" alt=""></div>
+                  <!-- <div class="slidepics slideshow7"><img src="res/all services/epoxyflr/pintura texturizada para pasillo/19816.jpeg" alt=""></div> -->
+                    <a class="prev" onclick="plusSlides(-1, 6); tapped(this); setTimeout(untapped, 200)"><span>❮</span></a>
+                    <a class="next" onclick="plusSlides(1, 6); tapped(this); setTimeout(untapped, 200)"><span>❯</span></a>
+                    <div class="dotcontainer">
+                      <span class="dot dot7" onclick="currentSlide(1, 6)"></span> 
+                      <span class="dot dot7" onclick="currentSlide(2, 6)"></span> 
+                      <span class="dot dot7" onclick="currentSlide(3, 6)"></span> 
+                      <span class="dot dot7" onclick="currentSlide(4, 6)"></span> 
+                      <span class="dot dot7" onclick="currentSlide(5, 6)"></span> 
+                      <span class="dot dot7" onclick="currentSlide(6, 6)"></span> 
+                      <span class="dot dot7" onclick="currentSlide(7, 6)"></span> 
+                      <span class="dot dot7" onclick="currentSlide(8, 6)"></span> 
+                      <span class="dot dot7" onclick="currentSlide(9, 6)"></span> 
+                      <span class="dot dot7" onclick="currentSlide(10, 6)"></span> 
+                      <span class="dot dot7" onclick="currentSlide(11, 6)"></span> 
+                      <span class="dot dot7" onclick="currentSlide(12, 6)"></span> 
+                      <span class="dot dot7" onclick="currentSlide(13, 6)"></span> 
+                      <span class="dot dot7" onclick="currentSlide(14, 6)"></span> 
+                      <span class="dot dot7" onclick="currentSlide(15, 6)"></span> 
+                      <span class="dot dot7" onclick="currentSlide(16, 6)"></span> 
+                      <span class="dot dot7" onclick="currentSlide(17, 6)"></span> 
+                      <span class="dot dot7" onclick="currentSlide(18, 6)"></span> 
+                      <span class="dot dot7" onclick="currentSlide(19, 6)"></span> 
+                      <span class="dot dot7" onclick="currentSlide(20, 6)"></span> 
+                      <span class="dot dot7" onclick="currentSlide(21, 6)"></span> 
+                      <span class="dot dot7" onclick="currentSlide(22, 6)"></span> 
+                    </div>
+                </div>
+                <div class="details">
+                  <p>La resina epoxy es un plástico que al aplicarse es manejable y que al secarse los compuestos químicos 
+                    reaccionan volviendolo muy duro y resistente. Se suele usar en areas donde se quiere protejer el piso bajo el.
+                    Existen otras opciones al epoxy que solemos aplicar.
+                  </p>
+                </div>
+            </div>
+            <li onclick="expands(this.nextElementSibling)" id="drywallser"><p>Reparación de paneles.</p>
+                <img src="res/downarrow.png" alt="open" class="downarrow">
+            </li>
+            <div class="serdet" >
+              <div class="slideshow">
+                <div class="slidepics slideshow8"><img src="res/all services/drywall/drywall0.jpg" alt=""></div>
+                <div class="slidepics slideshow8"><img src="res/all services/drywall/drywall1.jpg" alt=""></div>
+                <div class="slidepics slideshow8"><img src="res/all services/drywall/drywall2.jpg" alt=""></div>
+                <a class="prev" onclick="plusSlides(-1, 7); tapped(this); setTimeout(untapped, 200)"><span>❮</span></a>
+                <a class="next" onclick="plusSlides(1, 7); tapped(this); setTimeout(untapped, 200)"><span>❯</span></a>
+                <div class="dotcontainer">
+                  <span class="dot dot8" onclick="currentSlide(1, 7)"></span> 
+                  <span class="dot dot8" onclick="currentSlide(2, 7)"></span> 
+                  <span class="dot dot8" onclick="currentSlide(3, 7)"></span> 
+                </div>
+              </div>
+              <div class="details">
+                <p>Es muy normal que con el tiempo o por accidente, terminemos con un agujero en la pared o techo es algo muy típico 
+                  de hecho. Es fácil de reparar pero solo una mano experta puede dejarlo a como estaba antes.
+                </p>
+              </div>
+            </div>
+            <li onclick="expands(this.nextElementSibling)" id="fauxf"><p>Acabados decorativos.</p>
+              <img src="res/downarrow.png" alt="open" class="downarrow">
+            </li>
+            <div class="serdet" >
+              <div class="slideshow">
+                <div class="slidepics slideshow9"><img src="res/all services/fauxfin/faux1.jpg" alt=""></div>
+                <div class="slidepics slideshow9"><img src="res/all services/fauxfin/faux2.jpg" alt=""></div>
+                <div class="slidepics slideshow9"><img src="res/all services/fauxfin/faux3.jpg" alt=""></div>
+                <a class="prev" onclick="plusSlides(-1, 8); tapped(this); setTimeout(untapped, 200)"><span>❮</span></a>
+                <a class="next" onclick="plusSlides(1, 8); tapped(this); setTimeout(untapped, 200)"><span>❯</span></a>
+                <div class="dotcontainer">
+                  <span class="dot dot9" onclick="currentSlide(1, 8)"></span>
+                  <span class="dot dot9" onclick="currentSlide(2, 8)"></span> 
+                  <span class="dot dot9" onclick="currentSlide(3, 8)"></span> 
+                </div>
+              </div>
+              <div class="details">
+                <p>Con mucha clase y meramente de sentido estético, se utiliza pintura para lograr estos hermosos acabados.
+                </p>
+              </div>
+            </div>
+            <li onclick="expands(this.nextElementSibling)" id="woodstain"><p>Barnizado de madera.</p>
+              <img src="res/downarrow.png" alt="open" class="downarrow">
+            </li>
+            <div class="serdet" >
+              <div class="slideshow">
+                <div class="slidepics slideshow10"><img src="res/all services/woodstain/33_A10692053_12_1608089067.jpg" alt=""></div>
+                <div class="slidepics slideshow10"><img src="res/all services/woodstain/IMAG0264.jpg" alt=""></div>
+                <div class="slidepics slideshow10"><img src="res/all services/woodstain/IMG_0073.JPG" alt=""></div>
+                <a class="prev" onclick="plusSlides(-1, 9); tapped(this); setTimeout(untapped, 200)"><span>❮</span></a>
+                <a class="next" onclick="plusSlides(1, 9); tapped(this); setTimeout(untapped, 200)"><span>❯</span></a>
+                <div class="dotcontainer">
+                  <span class="dot dot10" onclick="currentSlide(1, 9)"></span> 
+                  <span class="dot dot10" onclick="currentSlide(2, 9)"></span> 
+                  <span class="dot dot10" onclick="currentSlide(3, 9)"></span> 
+                </div>
+              </div>
+              <div class="details">
+                <p>Es un servicio complementario a la pintura y es muy práctico darle un retoque a tus muebles de madera. Es recomendable
+                aplicar barniz cada cierto tiempo para protejer el material.
+                </p>
+              </div>
+            </div>
+            <li onclick="expands(this.nextElementSibling)" id="popcorn"><p>Textura Knock-down y remover popcorn.</p>
+              <img src="res/downarrow.png" alt="open" class="downarrow">
+            </li>
+            <div class="serdet" >
+              <div class="slideshow">
+                <div class="slidepics slideshow11"><img src="res/all services/popcorn/IMAG0369.jpg" alt=""></div>
+                <div class="slidepics slideshow11"><img src="res/all services/popcorn/pop1.jpg" alt=""></div>
+                <div class="slidepics slideshow11"><img src="res/all services/knockdown/27103.jpeg" alt=""></div>
+                <div class="slidepics slideshow11"><img src="res/all services/knockdown/25570.jpeg" alt=""></div>
+                <div class="slidepics slideshow11"><img src="res/all services/knockdown/25571.jpeg" alt=""></div>
+                <div class="slidepics slideshow11"><img src="res/all services/knockdown/knock1.jpg" alt=""></div>
+                <a class="prev" onclick="plusSlides(-1, 10); tapped(this); setTimeout(untapped, 200)"><span>❮</span></a>
+                <a class="next" onclick="plusSlides(1, 10); tapped(this); setTimeout(untapped, 200)"><span>❯</span></a>
+                <div class="dotcontainer">
+                  <span class="dot dot11" onclick="currentSlide(1, 10)"></span> 
+                  <span class="dot dot11" onclick="currentSlide(2, 10)"></span>                   
+                  <span class="dot dot11" onclick="currentSlide(3, 10)"></span>                  
+                  <span class="dot dot11" onclick="currentSlide(4, 10)"></span>                  
+                  <span class="dot dot11" onclick="currentSlide(5, 10)"></span>              
+                  <span class="dot dot11" onclick="currentSlide(6, 10)"></span> 
+                </div>
+              </div>
+              <div class="details">
+                <p>Usualmente aplicado en techos, es un acabado clásico que fue desplazado por el estuco. Podemos ayudarte a
+                  cubrirlo y reemplazarlo tambien.
+                </p>
+              </div>
+            </div>
+            <li onclick="expands(this.nextElementSibling)" id="wallrem"><p>Papel tapiz.</p>
+              <img src="res/downarrow.png" alt="open" class="downarrow">
+            </li>
+            <div class="serdet" >
+              <div class="slideshow">
+                <div class="slidepics slideshow12"><img src="res/all services/wallpaper/wallpaperrem.jpg" alt=""></div>
+                <div class="slidepics slideshow12"><img src="res/all services/wallpaper/wallpaperrem1.jpg" alt=""></div>
+                <a class="prev" onclick="plusSlides(-1, 11); tapped(this); setTimeout(untapped, 200)"><span>❮</span></a>
+                <a class="next" onclick="plusSlides(1, 11); tapped(this); setTimeout(untapped, 200)"><span>❯</span></a>
+                <div class="dotcontainer">
+                  <span class="dot dot12" onclick="currentSlide(1, 11)"></span> 
+                  <span class="dot dot12" onclick="currentSlide(2, 11)"></span> 
+                </div>
+              </div>
+              <div class="details">
+                <p>Removerlo eficientemente no siempre es fácil, solemos hacerlo en conjunto con algún servicio para 
+                 renovar tu pared. 
+                </p>
+              </div>
+            </div>
+        </ul>
+        <footer>
+
+        </footer>
+    </main>
+    <script>
+        function toggleLoad(a){
+          String(a);
+          let k = a.lastIndexOff("<!--");
+          if(k == -1){
+            a = "<!--" + a + "-->";
+          }
+          return a;
+        }
+        
+        function expands(element) {
+            if(element.style.display != 'flex'){
+                element.style.display = 'flex';
+            }
+            else {
+                element.style.display = 'none';
+            }
+        }
+
+        function expandall(a) {
+          let ex = document.getElementsByClassName('serdet');
+          
+          for (i = 0; i < ex.length; i++){ 
+          if (ex[i].style.display != 'block'){
+            ex[i].style.display = 'block';
+            a.innerHTML = 'Cerrar todos.';
+          }
+          else {
+            ex[i].style.display = 'none';
+            a.innerHTML = 'Expandir todos.';
+          }
+        }
+        }
+
+
+        let slideIndex = [1,1,1,1,1,1,1,1,1,1,1,1];
+        let slideId = ["slideshow1","slideshow2","slideshow3","slideshow4","slideshow5","slideshow6"
+        ,"slideshow7","slideshow8","slideshow9","slideshow10","slideshow11","slideshow12",];
+        let dotid = ["dot1", "dot2", "dot3", "dot4", "dot5", "dot6", "dot7", "dot8", "dot9", "dot10", "dot11","dot12"];
+        showSlides(1, 0);
+        showSlides(1, 1);
+        showSlides(1, 2);
+        showSlides(1, 3);
+        showSlides(1, 4);
+        showSlides(1, 5);
+        showSlides(1, 6);
+        showSlides(1, 7);
+        showSlides(1, 8);
+        showSlides(1, 9);
+        showSlides(1, 10);
+        showSlides(1, 11);
+        
+        function plusSlides(n, no) {
+            showSlides(slideIndex[no] += n, no);
+        }
+
+        function tapped(x) {
+            if (x.style.backgroundColor == '') {
+                x.style.backgroundColor = 'rgba(18, 18, 18, 0.3)';
+            }
+        }
+
+        function untapped() {
+               let x = document.getElementsByClassName('prev');
+               let z = document.getElementsByClassName('next');
+               for (i = 0; i < x.length; i++) {
+                   if (x[i].style.backgroundColor == 'rgba(18, 18, 18, 0.3)'){
+                       x[i].style.backgroundColor = '';                       
+                   }
+               }
+               for (i = 0; i < z.length; i++) {
+                   if (z[i].style.backgroundColor == 'rgba(18, 18, 18, 0.3)'){
+                    z[i].style.backgroundColor = '';
+                   }
+               }
+        }
+
+        function currentSlide(n, no) {
+            showSlides(slideIndex[no] = n, no);
+        }
+        
+        function showSlides(n, no) {
+            let i;
+            let dots = document.getElementsByClassName(dotid[no])
+            let x = document.getElementsByClassName(slideId[no]);
+            if (n > x.length) {slideIndex[no] = 1}    
+            if (n < 1) {slideIndex[no] = x.length}
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";  
+            }
+            for (i = 0; i < x.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+             x[slideIndex[no]-1].style.display = "block";  
+             dots[slideIndex[no]-1].className += " active";
+            }
+            window.onscroll = function() {truestick()};
+      var navbar = document.getElementById('optmenu');
+      var stick = navbar.offsetTop;
+      
+      function truestick() {
+        if(window.pageYOffset > stick) {
+          navbar.classList.add('stickontop');
+          document.getElementById('phonetag').style.transform = 'translate(0)';
+        }
+        else {
+          navbar.classList.remove('stickontop');
+          document.getElementById('phonetag').style.transform = 'translateY(-12vh)';
+        }
+      }
+    </script>    
+</body>
+</html>
